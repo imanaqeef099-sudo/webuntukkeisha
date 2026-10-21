@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Someone Special ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Georgia, serif;
+    color: white;
+    background: linear-gradient(135deg, #180813, #54152e, #a52b50);
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 20px;
+    animation: float 8s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 390px;
+    padding: 35px 23px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 25px;
+    background: rgba(255,255,255,0.09);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 35px rgba(255, 50, 110, 0.2);
+    position: relative;
+    z-index: 2;
+    animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.big-heart {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+h1 {
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #ffe0e9;
+    margin-bottom: 25px;
+}
+
+.line {
+    width: 60px;
+    height: 2px;
+    background: #ff9bbd;
+    margin: 0 auto 22px;
+}
+
+button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff8aaa, #ff416c);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 65, 108, 0.3);
+    transition: 0.3s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 11px;
+    color: #ffc6d7;
+    letter-spacing: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="container">
+
+    <div class="big-heart">❤️</div>
+
+    <h1>For You, My Love Keisha adra</h1>
+
+    <div class="line"></div>
+
+    <p class="subtitle">
+        I made something special for you.<br>
+        There are things in my heart<br>
+        that I may not always know how to say.
+        <br><br>
+        So, this little website is just for you. 🥀
+    </p>
+
+    <button onclick="openLetter()">
+        Open My Letter 💌
+    </button>
+
+    <div class="footer">
+        MADE WITH LOVE ♡
+    </div>
+
+</div>
+
+<script>
+const heartContainer = document.getElementById("hearts");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💕", "💗", "💖", "🥀"];
+
+    heart.textContent = symbols[
+        Math.floor(Math.random() * symbols.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 500);
+
+function openLetter() {
+    window.location.href = "page2.html";
+}
+</script>
+
+</body>
+</html>
